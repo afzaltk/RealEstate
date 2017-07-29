@@ -7,9 +7,7 @@ package fit5042.tutex.repository;
 
 import fit5042.tutex.repository.entities.Property;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import jdk.nashorn.internal.runtime.PropertyListeners;
 
 /**
  * TODO Exercise 1A Step 2 Complete this class.

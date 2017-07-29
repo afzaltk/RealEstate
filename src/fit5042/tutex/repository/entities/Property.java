@@ -5,21 +5,41 @@
  */
 package fit5042.tutex.repository.entities;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author Jian
  * 
  */
 public class Property {
-    
+
     private int id;
     private String address;
-    private int size;
+    private double size;
+    private int bedroomCount;
     private double price;
+    
+    public Property(int id, String address,  int bedroomCount, double size, double price) {
+        this.id = id;
+        this.address = address;
+        this.size = size;
+        this.bedroomCount = bedroomCount;
+        this.price = price;
+    }
+
+    public int getBedroomCount() {
+        return bedroomCount;
+    }
+
+    public void setBedroomCount(int bedroomCount) {
+        this.bedroomCount = bedroomCount;
+    }
+   
 
     @Override
     public String toString() {
-        return "Property{" + "id=" + id + ", address=" + address + ", size=" + size + ", price=" + price + '}';
+        return  id + ". " + address + ", " +bedroomCount+"BR(s), " + size + " sqm, " +  NumberFormat.getCurrencyInstance().format(price);
     }      
 
     public int getId() {
@@ -38,11 +58,11 @@ public class Property {
         this.address = address;
     }
 
-    public int getSize() {
+    public double getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(double size) {
         this.size = size;
     }
 
@@ -54,12 +74,7 @@ public class Property {
         this.price = price;
     }
 
-    public Property(int id, String address, int size, double price) {
-        this.id = id;
-        this.address = address;
-        this.size = size;
-        this.price = price;
-    }
+   
    //TODO Exercise 1A Step 1 Please refer tutorial exercise. 
     
     

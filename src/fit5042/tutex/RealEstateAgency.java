@@ -38,7 +38,7 @@ public class RealEstateAgency {
 
     private void runMethods() {
         createProperty();
-        System.out.println("5 Properties Created");
+        System.out.println("5 Properties Created Succssfully");
         System.out.println("----------------------------------------------------------------------------------------");
         System.out.println("Properties Listed below -");
         displayProperty();
@@ -49,11 +49,11 @@ public class RealEstateAgency {
 
     private void createProperty() {
         try {
-            propertyRepository.addProperty(new Property(1, "Lansdowne", 300, 45000));
-            propertyRepository.addProperty(new Property(2, "Stkilda", 500, 55000));
-            propertyRepository.addProperty(new Property(3, "Caulfield", 400, 40000));
-            propertyRepository.addProperty(new Property(4, "clayton", 600, 65000));
-            propertyRepository.addProperty(new Property(5, "melbourne", 300, 100000));
+            propertyRepository.addProperty(new Property(1, "Lansdowne", 2, 300, 45000));
+            propertyRepository.addProperty(new Property(2, "Stkilda", 3, 500, 55000));
+            propertyRepository.addProperty(new Property(3, "Caulfield", 3,400, 40000));
+            propertyRepository.addProperty(new Property(4, "clayton", 2, 600, 65000));
+            propertyRepository.addProperty(new Property(5, "melbourne", 2, 300, 100000));
         } catch (Exception ex) {
             System.out.println("Property not created " + ex.getMessage());
         }
@@ -74,7 +74,7 @@ public class RealEstateAgency {
     private void searchProperty() {
         try {
             Scanner sc=new Scanner(System.in);
-            System.out.println("Enter the property ID to search ");
+            System.out.print("Enter the property ID to search ");
             int propertyId=sc.nextInt();
             Property propertyDetail=propertyRepository.searchPropertyById(propertyId);
             if (propertyDetail==null)
