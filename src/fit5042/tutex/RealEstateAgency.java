@@ -3,6 +3,9 @@ package fit5042.tutex;
 import fit5042.tutex.repository.PropertyRepository;
 import fit5042.tutex.repository.PropertyRepositoryFactory;
 import fit5042.tutex.repository.entities.Property;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,6 +38,12 @@ public class RealEstateAgency {
 
     private void runMethods() {
         createProperty();
+        System.out.println("5 Properties Created");
+        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println("Properties Listed below -");
+        displayProperty();
+        System.out.println("----------------------------------------------------------------------------------------");
+        searchProperty();
         System.out.println("----------------------------------------------------------------------------------------");
     }
 
@@ -48,6 +57,37 @@ public class RealEstateAgency {
         } catch (Exception ex) {
             System.out.println("Property not created " + ex.getMessage());
         }
+        
+    }
+
+    private void displayProperty() {
+        try {
+            for (Property property : propertyRepository.getAllProperties()) {
+			System.out.println(property.toString());
+		}
+            
+        } catch (Exception ex) {
+            System.out.println("Property not listed : " + ex.getMessage());
+        }
+    }
+
+    private void searchProperty() {
+        try {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Type the propert ID to search and press Enter button ");
+            int propertyId=sc.nextInt();
+            Property propertyDetail=propertyRepository.searchPropertyById(propertyId);
+            if (propertyDetail==null)
+            {
+                System.out.println("Propert does not exist");
+            }
+            else {
+                System.out.println(propertyDetail.toString());
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(RealEstateAgency.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }
 
